@@ -1,26 +1,51 @@
 var bool=undefined;
+var gravity=2.9;
+  var bool2=undefined;
+  var bool3=undefined;
+  var bool4=undefined;
+  var bool5=undefined;
+
+
+
+  function changecanvascolor()
+  { bool5=1;
+    changeradius();
+  }
+
+
+function gravity2()
+{ bool=8;  changeradius();}
+
+
+
+function changecolor()
+{ bool2=6;
+}
+
+ 
  function gravity3()
                   { 
 
                     bool=1;
                      }
- function gravity2()
+ function interact2()
              {
-                bool=0;  changeradius();
+                bool3=0; 
              }
+
 function interact()
-{ bool=3;
+{ bool3=3;
 }
  function distance(x,y,dx,dy)
  { return Math.sqrt( Math.pow(x-dx,2)+ Math.pow(x-dy,2));
  }
 
-
+function changeradius() {  var data4=document.getElementById('gravity').value;
  
+                          document.getElementById('gravityvalue').innerHTML=data4;
+                          gravity=data4/2;
 
-function changeradius() { 
-
-    
+                   
    
    var status=document.getElementById('SliderStatus');
    
@@ -31,17 +56,27 @@ function changeradius() {
  var canvas=document.querySelector('canvas');
    canvas.width=window.innerWidth;
  canvas.height=window.innerHeight;
-canvas.style.backgroundColor="black";
+
+if( bool5==1){
+canvas.style.backgroundColor="BLACK";
+ }
+ else canvas.style.backgroundColor="white";
+
+
+
+
+
   var c=canvas.getContext('2d');
 
 
   var colors=['#85144b',"#0074D9",'#D8C3A5','#FF851B'];
 
-  var gravity=2.9;
+  
   var friction=0.92;
   
   
                    
+
 
  
 
@@ -66,14 +101,27 @@ window.addEventListener('mousemove',function(event){
    this.dy=dy;
    this.radius=radius;
 
+
+
+
+function changecolor()
+{ bool=6;
+}
+
          this.draw=function(){
                               c.beginPath();
                               c.arc(this.x,this.y,this.radius,0,Math.PI*2,0);
-                              c.strokeStyle="green";
+                              c.strokeStyle="red";
                               c.stroke();
 
-                              
+                            if ( bool2==6){  
                               c.fillStyle=colors[Math.floor(Math.random()*colors.length)];
+                              }
+
+
+                              else c.fill();
+
+
                               c.fill();
 
                             }
@@ -122,7 +170,7 @@ if(bool==1){
  */
 
 
- if(bool==3)
+ if(bool3==3)
 {
    
   if(this.x-mouse.x<100&&this.x-mouse.x>-100&&this.y-mouse.y<100&&this.y-mouse.y>-100)
